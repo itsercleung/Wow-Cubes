@@ -18,15 +18,24 @@ let oscillateValue = 0;
 let speed = 0.05;
 let reverse = true;
 
+let r = 120;
+let g = 190;
+let b = 110;
+let brightness = 255;
+let dlr = 255;
+let dlg = 0;
+let dlb = 0;
+
 //-----------------------------------------------
 
 let isometricAngle;
 let maxDistance;
-let densitySlider, speedSlider, xAngleSlider, yAngleSlider, oscillateSlider, maxDistanceSlider;
+let densitySlider, speedSlider, xAngleSlider, yAngleSlider, oscillateSlider, maxDistanceSlider, dlrSlider, dlgSlider, dlbSlider, 
+rSlider, gSlider, bSlider, brightnessSlider;
 p5.disableFriendlyErrors = true; // disables FES
 
 function setup() {
-  createCanvas(600, 600, WEBGL);
+  createCanvas(700, 700, WEBGL);
   isometricAngle = atan(1 / sqrt(2));
   maxDistance = dist(distX1, distY1, distX2, distY2);
 
@@ -46,16 +55,37 @@ function setup() {
 
   maxDistanceSlider = createSlider(1, 1000, maxDistance, 10);
   maxDistanceSlider.position(20, 170);
+
+  rSlider = createSlider(0, 255, r, 1);
+  rSlider.position(600, 20);
+
+  gSlider = createSlider(0, 255, g, 1);
+  gSlider.position(600, 50);
+
+  bSlider = createSlider(0, 255, b, 1);
+  bSlider.position(600, 80);
+
+  brightnessSlider = createSlider(0, 255, brightness, 1);
+  brightnessSlider.position(600, 110);
+
+  dlrSlider = createSlider(0, 255, dlr, 1);
+  dlrSlider.position(600, 140);
+
+  dlgSlider = createSlider(0, 255, dlg, 1);
+  dlgSlider.position(600, 170);
+
+  dlbSlider = createSlider(0, 255, dlb, 1);
+  dlbSlider.position(600, 200);
 }
 
 function draw() {
   //Canvas lighting render
-  background(255);
-  ortho(-500, 500, 500, -500, 0, 1300); //persective camera angle
-  directionalLight(255, 0, 0, -0.5, -0.5, 0);
   noStroke();
-  ambientLight(255);
-  ambientMaterial(150, 100, 150);
+  background(255);
+  ortho(-700, 700, 700, -700, 0, 2000); //persective camera angle
+  directionalLight(dlr, dlg, dlb, -0.5, -0.5, 0); //lighting 
+  ambientLight(brightness);
+  ambientMaterial(r, g, b);
 
   //Isometric view angle
   rotateX(isometricAngle + offsetAngleX);
@@ -91,6 +121,13 @@ function draw() {
   offsetAngleY = yAngleSlider.value();
   oscillateValue = oscillateSlider.value();
   maxDistance = maxDistanceSlider.value();
+  r = rSlider.value();
+  g = gSlider.value();
+  b = bSlider.value();
+  brightness = brightnessSlider.value();
+  dlr = dlrSlider.value();
+  dlg = dlgSlider.value();
+  dlb = dlbSlider.value();
 
   //text('red', rSlider.x * 2 + rSlider.width, 35);
   //text('green', gSlider.x * 2 + gSlider.width, 65);
