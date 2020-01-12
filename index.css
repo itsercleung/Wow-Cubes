@@ -75,7 +75,6 @@ a:hover {
 	font-weight: 700;
 
 	text-decoration: none;
-	text-transform: uppercase;
 }
 
 /*
@@ -116,4 +115,25 @@ a:hover {
 
 .link:hover::before{
 	transition-duration: .15s;
+}
+
+/* BUTTON style */
+.button {
+    font-family: 'Inconsolata', monospace;
+	background-color:#000000;
+	display:inline-block;
+	cursor:pointer;
+    color:#ffffff;
+    border: none;
+    outline:none;
+	font-size:16px;
+	padding:9px 18px;
+    text-decoration:none;
+    -webkit-transition: .2s;
+    transition: background-color .2s;
+}
+
+.button:hover {
+    background-color:#f0d467;
+    color: #000000;
 }
