@@ -40,7 +40,7 @@ function windowResized() {
 
 //Setup canvas and objects
 function setup() {
-   var canvas = createCanvas(windowHeight, windowHeight, WEBGL);
+  var canvas = createCanvas(windowHeight, windowHeight, WEBGL);
   canvas.style('display', 'block');
 
   //Define angle and distance of rendering cubes
@@ -50,40 +50,55 @@ function setup() {
   // create sliders
   densitySlider = createSlider(10, 100, w, 1);
   densitySlider.position(100, 20);
+  densitySlider.addClass("slider");
+
   speedSlider = createSlider(0, 0.2, speed, 0.001);
   speedSlider.position(100, 50);
+  speedSlider.addClass("slider");
 
   xAngleSlider = createSlider(-1, 1, offsetAngleX, 0.01);
   xAngleSlider.position(100, 80);
+  xAngleSlider.addClass("slider");
+
   yAngleSlider = createSlider(-1, 1, offsetAngleY, 0.01);
   yAngleSlider.position(100, 110);
+  yAngleSlider.addClass("slider");
 
   oscillateSlider = createSlider(-1, 1, oscillateValue, 0.01);
   oscillateSlider.position(100, 140);
+  oscillateSlider.addClass("slider");
 
   maxDistanceSlider = createSlider(1, 1000, maxDistance, 10);
   maxDistanceSlider.position(100, 170);
+  maxDistanceSlider.addClass("slider");
 
   rSlider = createSlider(0, 255, r, 1);
   rSlider.position(100, 260);
+  rSlider.addClass("slider");
 
   gSlider = createSlider(0, 255, g, 1);
   gSlider.position(100, 290);
+  gSlider.addClass("slider");
 
   bSlider = createSlider(0, 255, b, 1);
   bSlider.position(100, 320);
+  bSlider.addClass("slider");
 
   brightnessSlider = createSlider(0, 255, brightness, 1);
   brightnessSlider.position(100, 350);
+  brightnessSlider.addClass("slider");
 
   dlrSlider = createSlider(0, 255, dlr, 1);
   dlrSlider.position(100, 380);
+  dlrSlider.addClass("slider");
 
   dlgSlider = createSlider(0, 255, dlg, 1);
   dlgSlider.position(100, 410);
+  dlgSlider.addClass("slider");
 
   dlbSlider = createSlider(0, 255, dlb, 1);
   dlbSlider.position(100, 440);
+  dlbSlider.addClass("slider");
 
   setupText();
 
