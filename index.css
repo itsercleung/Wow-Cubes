@@ -1,3 +1,23 @@
+html, body{
+    height: 100%;
+    font-family: 'Inconsolata', monospace;
+}
+
+body {
+    margin: 0;
+    display: flex;
+
+    /* This centers our sketch horizontally. */
+    justify-content: center;
+
+    /* This centers our sketch vertically. */
+    align-items: center;
+}
+
+.pText {
+    position: absolute;
+}
+
 .slidecontainer {
     width: 20%;
 }
@@ -31,4 +51,82 @@
     height: 20px;
     background: #4CAF50;
     cursor: pointer;
+}
+
+/* A link that has not been visited */
+a:link {
+    color: black;
+}
+/* A link that has been visited */
+a:visited {
+    color: black;
+}
+/* A link that is hovered on */
+a:hover {
+    color: black;
+}
+
+#author {
+    position: absolute;
+    bottom: 30px;
+    font-size: 16px;
+}
+
+#title {
+    position: absolute;
+    bottom: 60px;
+    font-size: 24px;
+}
+
+/* LINK HOVER */
+
+.link{
+	color: #000000;
+	font-weight: 700;
+
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/*
+* These styles creates the underlining of link
+*/
+.link{
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	
+	padding-left: 10px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+}
+.link::before{
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to top, #fed330 25%, rgba(0, 0, 0, 0) 40%);
+	
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	z-index: -1;
+	
+	will-change: width;
+	transform-origin: left bottom
+}
+
+.link:hover::before{
+	width: 0;
+}
+
+/*
+* animation styles
+*/
+
+.link::before{
+	transition: width .1s ease-out;
+}
+
+.link:hover::before{
+	transition-duration: .15s;
 }
