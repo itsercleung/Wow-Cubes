@@ -5,12 +5,12 @@ p5.disableFriendlyErrors = true; // disables FES
 
 //Customizable variables
 let angle = 0;
-let w = 40; //width of rendered shapes (num shapes)
+let w = 60; //width of rendered shapes (num shapes)
 
 let distX1 = 0;
 let distY1 = 0;
 let distX2 = 400; //distance of height offset
-let distY2 = 400; 
+let distY2 = 400;
 
 let offsetAngleX = 0;
 let offsetAngleY = 0;
@@ -33,9 +33,9 @@ let stroke = 0;
 
 let isometricAngle;
 let maxDistance;
-let densitySlider, speedSlider, xAngleSlider, yAngleSlider, oscillateSlider, 
-maxDistanceSlider, dlrSlider, dlgSlider, dlbSlider, 
-rSlider, gSlider, bSlider, brightnessSlider, strokeSlider; 
+let densitySlider, speedSlider, xAngleSlider, yAngleSlider, oscillateSlider,
+  maxDistanceSlider, dlrSlider, dlgSlider, dlbSlider,
+  rSlider, gSlider, bSlider, brightnessSlider, strokeSlider;
 let reverseButton, defaultButton;
 
 function windowResized() {
@@ -169,7 +169,7 @@ function drawCubes() {
 
       let d = dist(x, z, width / 2, height / 2); //distance rate
       let offset = map(d, 0, maxDistance, -PI, PI); //offset between shapes
-      let a = angle + offset; 
+      let a = angle + offset;
       let h = floor(map(sin(a) + oscillateValue, -1, 1, 50, 300)); //height change
 
       translate(x - width / 2, 0, z - height / 2);
@@ -254,7 +254,7 @@ function reverseClicked() {
 function resetClicked() {
   densitySlider.value(40);
   speedSlider.value(0.05);
-  xAngleSlider.value(0); 
+  xAngleSlider.value(0);
   yAngleSlider.value(0);
   oscillateSlider.value(0);
   maxDistanceSlider.value(dist(0, 0, 400, 400));
@@ -269,5 +269,3 @@ function resetClicked() {
 
   reverse = false;
 }
-
-
